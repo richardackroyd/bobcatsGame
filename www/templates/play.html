@@ -1,7 +1,7 @@
 <ion-view title="Play" id="page5" class=" ">
     <ion-content padding="true" class="has-header">
         <ion-list id="play-list1" class=" ">
-            <ion-item ng-repeat="item in tasks" ui-sref="tabsController.result" class="  " ng-click="setPlay(item.title,item.public)">
+            <ion-item ng-repeat="item in tasks" ui-sref="tabsController.result" class="  " ng-click="setPlay(item.title,item.public,item.playtype)">
             
             {{item.title}}
             

@@ -29,29 +29,84 @@
                 <img src="img/MUQyIZgkTKKBNtFKEAry_yellow.png" width="100" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
             </a>
         </div>
-    
-        <div class="spacer" style="width: 300px; height: 30px;"></div>
-        
-        <div align="center">
-        <table>
-            <tr>    
-                <td><b>Yards:</b></td> <td>{{yardsTotal}}</td>
-            </tr>
-            <tr>
-                <td><b>Succesful:</b></td> <td>{{successfulPlays}}</td>    
-            </tr>
-            <tr>    
-                <td><b>Failed:</b></td> <td>{{failedPlays}}</td>
-            </tr>
-            <tr>    
-                <td><b>Avg Yards:</b></td> <td>{{averageYards}}</td>
-            </tr>
-            <tr>    
-                <td><b>Penalties:</b></td> <td>{{penaltyCount}}</td>
-            </tr>
 
-        </table>  
-        </div>
-        
+        <div class="spacer" style="width: 300px; height: 30px;"></div>
+
+      <div align="center">
+        <table class="results table-responsive">
+          <tr>
+            <th>
+            </th>
+            <th class="resultsheadercell" id="border">
+              Overall
+            </th>
+            <th class="resultsheadercell" id="border">
+              Run
+            </th>
+            <th class="resultsheadercell" id="border">
+              Pass
+            </th>
+            <td id="border"></td>
+          </tr>
+
+          <tr>
+            <td id="border"></td>
+            <td id="border"></td>
+            <td id="border"><small>{{percentRun}}%</small></td>
+            <td id="border"><small>{{percentPass}}%</small></td>
+            <td id="border"></td>
+          </tr>
+
+          <tr>
+            <td id="border"><b>Yards:</b>
+            <td id="border">{{yardsTotal}}</td>
+            <td id="border">{{runTotalYards}}</td>
+            <td id="border">{{passTotalYards}}</td>
+            <td id="border"></td>
+          </tr>
+
+          <tr>
+            <td id="border"><b>Avg Yards:</b>
+            <td id="border">{{averageYards}}</td>
+            <td id="border">{{runAverageYards}}</td>
+            <td id="border">{{passAverageYards}}</td>
+            <td id="border"></td>
+          </tr>
+
+          <tr>
+            <td id="border"><b>Total Plays:</b>
+            <td id="border">{{totalPlays}}</td>
+            <td id="border">{{totalRun}}</td>
+            <td id="border">{{totalPass}}</td>
+            <td id="border"></td>
+          </tr>
+
+          <tr>
+            <td id="border"><small>of which succesful:</small></td>
+            <td id="border"><small>{{successfulPlays}}</small></td>
+            <td id="border"><small>{{runCountSuccess}}</small></td>
+            <td id="border"><small>{{passCountSuccess}}</small></td>
+            <td id="border"><small>{{percentSuccess}}%</small></td>
+          </tr>
+
+          <tr>
+            <td id="border"><small>of which failed:</small></td>
+            <td id="border"><small>{{failedPlays}}</small></td>
+            <td id="border"><small>{{runCountFailed}}</small></td>
+            <td id="border"><small>{{passCountFailed}}</small></td>
+            <td id="border"><small>{{percentFailed}}%</small></td>
+          </tr>
+
+          <tr>
+            <td id="border"><small>of which penalties:</small></td>
+            <td id="border"><small>{{penaltyCount}}</small></td>
+            <td id="border"><small>{{runTotalPenalty}}</small></td>
+            <td id="border"><small>{{passTotalPenalty}}</small></td>
+            <td id="border"></td>
+          </tr>
+
+        </table>
+      </div>
+
     </ion-content>
 </ion-view>

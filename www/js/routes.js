@@ -76,6 +76,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.playbook', {
+    url: '/playbook',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/playbook.html',
+        controller: 'playbookCtrl'
+      }
+    }
+  })
+
 $urlRouterProvider.otherwise('/page1/formation')
 
   

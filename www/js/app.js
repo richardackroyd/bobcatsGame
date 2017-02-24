@@ -69,15 +69,110 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     if ($localStorage.playsMadeLocal == null || $localStorage.playsMadeLocal == '') {
         $localStorage.playsMadeLocal=[];
     }
-    $scope.playsMade=$localStorage.playsMadeLocal;
     
+    $scope.playsMade=$localStorage.playsMadeLocal;
+
+    if ($localStorage.runCountSuccess == null || $localStorage.runCountSuccess == '') {
+        $localStorage.runCountSuccess=0;
+    }
+    
+    $scope.runCountSuccess=$localStorage.runCountSuccess;
+
+    if ($localStorage.runCountFailed == null || $localStorage.runCountFailed == '') {
+        $localStorage.runCountFailed=0;
+    }
+    
+    $scope.runCountFailed=$localStorage.runCountFailed;
+
+    if ($localStorage.runTotalYards == null || $localStorage.runTotalYards == '') {
+        $localStorage.runTotalYards=0;
+    }
+    
+    $scope.runTotalYards=$localStorage.runTotalYards;
+
+    if ($localStorage.runAverageYards == null || $localStorage.runAverageYards == '') {
+        $localStorage.runAverageYards=0;
+    }
+    
+    $scope.runAverageYards=$localStorage.runAverageYards;
+
+    if ($localStorage.runTotalPenalty == null || $localStorage.runTotalPenalty == '') {
+        $localStorage.runTotalPenalty=0;
+    }
+    
+    $scope.runTotalPenalty=$localStorage.runTotalPenalty;
+
+    if ($localStorage.passCountSuccess == null || $localStorage.passCountSuccess == '') {
+        $localStorage.passCountSuccess=0;
+    }
+    
+    $scope.passCountSuccess=$localStorage.passCountSuccess;
+
+    if ($localStorage.passCountFailed == null || $localStorage.passCountFailed == '') {
+        $localStorage.passCountFailed=0;
+    }
+    
+    $scope.passCountFailed=$localStorage.passCountFailed;
+
+    if ($localStorage.passTotalYards == null || $localStorage.passTotalYards == '') {
+        $localStorage.passTotalYards=0;
+    }
+    
+    $scope.passTotalYards=$localStorage.passTotalYards;
+
+    if ($localStorage.passAverageYards == null || $localStorage.passAverageYards == '') {
+        $localStorage.passAverageYards=0;
+    }
+    
+    $scope.passAverageYards=$localStorage.passAverageYards;
+
+    if ($localStorage.passTotalPenalty == null || $localStorage.passTotalPenalty == '') {
+        $localStorage.passTotalPenalty=0;
+    }
+    
+    $scope.passTotalPenalty=$localStorage.passTotalPenalty;
+
     $scope.searchCriteria="";
+
+    $scope.percentRun = (($scope.runCountSuccess+$scope.runCountFailed) / ($scope.successfulPlays+$scope.failedPlays));
+    $scope.percentRun = Math.round($scope.percentRun*100); 
+
+    if ($scope.percentRun == null || $scope.percentRun == '' || isNaN($scope.percentRun)) {
+        $scope.percentRun=0;
+    }
+
+    $scope.percentPass = (($scope.passCountSuccess+$scope.passCountFailed) / ($scope.successfulPlays+$scope.failedPlays));
+    $scope.percentPass = Math.round($scope.percentPass*100);
+
+    if ($scope.percentPass == null || $scope.percentPass == '' || isNaN($scope.percentPass)) {
+        $scope.percentPass=0;
+    }
+
+    $scope.percentSuccess = (($scope.passCountSuccess+$scope.runCountSuccess) / ($scope.successfulPlays+$scope.failedPlays));
+    $scope.percentSuccess = Math.round($scope.percentSuccess*100);
+
+    if ($scope.percentSuccess == null || $scope.percentSuccess == '' || isNaN($scope.percentSuccess)) {
+        $scope.percentSuccess=0;
+    }
+
+    $scope.percentFailed = (($scope.passCountFailed+$scope.runCountFailed) / ($scope.successfulPlays+$scope.failedPlays));
+    $scope.percentFailed = Math.round($scope.percentFailed*100);
+
+    console.log("percentFailed: " + $scope.percentFailed);
+
+    if ($scope.percentFailed == null || $scope.percentFailed == '' || isNaN($scope.percentFailed)) {
+        $scope.percentFailed=0;
+    }
+
+    $scope.totalRun = $scope.runCountSuccess + $scope.runCountFailed;
+    $scope.totalPass = $scope.passCountSuccess + $scope.passCountFailed;
+    $scope.totalPlays = $scope.successfulPlays + $scope.failedPlays;
 
     //Get the list of plays from the playbook
     
     PlayData.success(function(data) {
         $scope.tasks = data
-    });
+    }); 
     
     //Set the list of results from a play that need to be tracked
     
@@ -151,9 +246,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     
     //From the select a play screen this records the play information in temporary variables to use later on the results screen
     
-    $scope.setPlay = function(play, publicPlay) {
+    $scope.setPlay = function(play, publicPlay, publicPlayType) {
         $scope.selectedPlay = play;
         $scope.selectedPublicPlay = publicPlay;
+        $scope.playtype = publicPlayType;
     };
     
     //From the first play screed, the formation information is stored in a temporary variable for use later
@@ -168,14 +264,19 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
         
         //set the object properties from the previous screens
         //this could be more efficiently done by pulling the model into the functions for each page
+        //for now the data elements on the page are pulled into the 'aboutPlay' object that will be pushed onto the playsMade array
+        //counters are updated at the same time the object is built depending on the result of the specific play
         
         aboutPlay.play=$scope.selectedPlay;
         aboutPlay.formation=$scope.selectedFormation;
+        aboutPlay.playtype=$scope.playtype;
 
         //if a successful play
         
         if (aboutPlay.result == "Success"){
+
             $scope.successfulPlays++; //count the scuccessful plays
+
             if (aboutPlay.value == null || aboutPlay.value == '') {
                 
                 aboutPlay.value=0; //if no yards set to 0 to support average calculations (or errors on null)
@@ -189,15 +290,50 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
             }
             
             total = total + aboutPlay.value; //add yards to the running total
+
+            if ($scope.playtype == "run"){ //if a run play
+
+                console.log("run play");
+                $scope.runTotalYards = $scope.runTotalYards + aboutPlay.value;
+                $scope.runCountSuccess ++;
+                console.log($scope.runCountSuccess);
+
+            } else //if a pass play
+            {
+                $scope.passTotalYards = $scope.passTotalYards + aboutPlay.value;
+                $scope.passCountSuccess ++;
+
+            }
             
         } else //if a failed play
         {
             aboutPlay.value=0; //set yards to 0 to support average calculations (or errors on null)
             $scope.failedPlays++; //count the failed plays
+
+            if ($scope.playtype == "run"){ //if a run play
+
+                $scope.runCountFailed ++;
+
+            } else //if a pass play
+            {
+                $scope.passCountFailed ++;
+
+            }
         }
         
         if (aboutPlay.result == "Failed - Penalty"){
+
             $scope.penaltyCount++; //count the penalties
+
+            if ($scope.playtype == "run"){ //if a run play
+
+                $scope.runTotalPenalty ++;
+
+            } else //if a pass play
+            {
+                $scope.passTotalPenalty ++;
+
+            }
         }
         
         //put the cleaned up play data into the array of plays
@@ -209,12 +345,50 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
         if (total==0){
             
             $scope.averageYards=0;
+
+            if ($scope.playtype == "run"){ //if a run play
+
+                $scope.runAverageYards=0;
+
+            } else //if a pass play
+            {
+                $scope.passAverageYards=0;
+
+            }
             
         } else {
             
             $scope.averageYards=Math.round(total/$scope.successfulPlays);
+
+            if ($scope.playtype == "run"){ //if a run play
+
+                $scope.runAverageYards=Math.round($scope.runTotalYards/$scope.runCountSuccess);
+
+            } else //if a pass play
+            {
+                $scope.passAverageYards=Math.round($scope.passTotalYards/$scope.passCountSuccess);
+
+            }
             
         }
+
+        $scope.percentRun = (($scope.runCountSuccess+$scope.runCountFailed) / ($scope.successfulPlays+$scope.failedPlays));
+        $scope.percentRun = Math.round($scope.percentRun*100); 
+
+        $scope.percentPass = (($scope.passCountSuccess+$scope.passCountFailed) / ($scope.successfulPlays+$scope.failedPlays));
+        $scope.percentPass = Math.round($scope.percentPass*100);
+
+        $scope.percentSuccess = (($scope.passCountSuccess+$scope.runCountSuccess) / ($scope.successfulPlays+$scope.failedPlays));
+        $scope.percentSuccess = Math.round($scope.percentSuccess*100);
+
+        $scope.percentFailed = (($scope.passCountFailed+$scope.runCountFailed) / ($scope.successfulPlays+$scope.failedPlays));
+        $scope.percentFailed = Math.round($scope.percentFailed*100);
+
+        $scope.totalRun = $scope.runCountSuccess + $scope.runCountFailed;
+        $scope.totalPass = $scope.passCountSuccess + $scope.passCountFailed;
+        $scope.totalPlays = $scope.successfulPlays + $scope.failedPlays;
+
+        //push the data into the array
 
         $scope.yardsTotal = total; //set the scope variable for the total yards to display later
         
@@ -226,6 +400,16 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
         $localStorage.failed=$scope.failedPlays;
         $localStorage.penalties=$scope.penaltyCount;
         $localStorage.averageYards=$scope.averageYards;
+        $localStorage.runTotalYards=$scope.runTotalYards;
+        $localStorage.runCountSuccess=$scope.runCountSuccess;
+        $localStorage.runCountFailed=$scope.runCountFailed;
+        $localStorage.runTotalPenalty=$scope.runTotalPenalty;
+        $localStorage.runAverageYards=$scope.runAverageYards;
+        $localStorage.passTotalYards=$scope.passTotalYards;
+        $localStorage.passCountSuccess=$scope.passCountSuccess;
+        $localStorage.passCountFailed=$scope.passCountFailed;
+        $localStorage.passTotalPenalty=$scope.passTotalPenalty;
+        $localStorage.passAverageYards=$scope.passAverageYards;
         
         //action if the tweet button is pressed
         
@@ -272,7 +456,23 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
                     $scope.averageYards=0;
                     $scope.penaltyCount=0;
                     total=0;
-                    
+                    $scope.runTotalYards=0;
+                    $scope.runCountSuccess=0;
+                    $scope.runCountFailed=0;
+                    $scope.runTotalPenalty=0;
+                    $scope.runAverageYards=0;
+                    $scope.passTotalYards=0;
+                    $scope.passCountSuccess=0;
+                    $scope.passCountFailed=0;
+                    $scope.passTotalPenalty=0;
+                    $scope.passAverageYards=0;
+                    $scope.totalPlays=0;
+                    $scope.totalRun=0;
+                    $scope.totalPass=0;
+                    $scope.percentFailed=0;
+                    $scope.percentSuccess=0;
+                    $scope.percentPass=0;
+                    $scope.percentRun=0;
                     //clear local storage variables
                     
                     $localStorage.playsMadeLocal=[]; 
@@ -281,6 +481,16 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
                     $localStorage.failed=0;
                     $localStorage.penalties=0;
                     $localStorage.averageYards=0;
+                    $localStorage.runTotalYards=0;
+                    $localStorage.runCountSuccess=0;
+                    $localStorage.runCountFailed=0;
+                    $localStorage.runTotalPenalty=0;
+                    $localStorage.runAverageYards=0;
+                    $localStorage.passTotalYards=0;
+                    $localStorage.passCountSuccess=0;
+                    $localStorage.passCountFailed=0;
+                    $localStorage.passTotalPenalty=0;
+                    $localStorage.passAverageYards=0;
                     
                 }
             }

@@ -63,9 +63,9 @@
                 <span class="input-label">Notes</span><textarea placeholder="" ng-model="aboutPlay.text"></textarea>
             </label>
         </form>
-        <a ui-sref="tabsController.formation" id="result-button2" class=" button button-positive  button-block short" ng-click="addPlay(aboutPlay,0)">Save</a>
+        <a ui-sref="tabsController.formation" id="result-button2" class=" button button-positive  button-block short" ng-click="addPlay(aboutPlay,0,$scope.playtype)">Save</a>
         
-        <a ui-sref="tabsController.formation" id="result-button3" class=" button button-positive  button-block short" ng-click="addPlay(aboutPlay, 1)">Save&amp;Tweet</a>
+        <a ui-sref="tabsController.formation" id="result-button3" class=" button button-positive  button-block short" ng-click="addPlay(aboutPlay, 1,$scope.playtype)">Save&amp;Tweet</a>
                 
     </ion-content>
 </ion-view>

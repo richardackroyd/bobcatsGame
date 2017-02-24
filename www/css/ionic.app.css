@@ -2995,6 +2995,27 @@ time, mark, audio, video {
   font: inherit;
   font-size: 100%; }
 
+table.results {
+  width: 75%;
+}
+
+#border{
+  border-bottom: 1px solid #dddddd;
+  height: 25px;
+  vertical-align: bottom;
+}
+
+#border-right{
+  border-bottom: 1px solid #dddddd;
+  height: 25px;
+  vertical-align: bottom;
+  text-align: right;
+}
+
+th.resultsheadercell{
+  text-align: left;
+}
+
 ol, ul {
   list-style: none; }
 
