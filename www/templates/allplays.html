@@ -1,0 +1,16 @@
+<ion-view title="Reports" id="page3" class=" ">
+    <ion-content padding="true" class="has-header">
+    
+    
+    <a ui-sref="tabsController.formation" id="result-button2" class=" button button-positive  button-block short" ng-click="">List Plays</a>
+    
+    <select ng-model="playsmade.result">
+    <option 
+            ng-repeat="playmade in plays"
+            >
+      {{playmade.result}}
+    </option>
+    </select>
+        
+    </ion-content>
+</ion-view>

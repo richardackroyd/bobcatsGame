@@ -1,0 +1,71 @@
+<ion-view title="Result" id="page6" class=" ">
+    <ion-content padding="true" class="has-header">
+        <form id="result-form1" class="list ">
+            
+            <div ng-if="selectedFormation == 'red'">
+                 
+            <img src="img/UAQrvKZ3RSiS4KWve4wf_red.png" width="100%" height="50" style="display: block; margin-left: auto; margin-right: auto;  left:0; top:0;">
+                
+            <p style="z-index:100; color:black; font-size:24px; font-weight:bold; position:absolute;  left:5px; top:5px;" >{{selectedPlay}}</p>
+            
+            </div>
+            
+            <div ng-if="selectedFormation == 'blue'">
+                 
+            <img src="img/frKn3IpVTqajCrHPaWlR_blue.png" width="100%" height="50" style="display: block; margin-left: auto; margin-right: auto;  left:0; top:0;">
+
+            <p style="z-index:100; color:black; font-size:24px; font-weight:bold; position:absolute;  left:5px; top:5px;">{{selectedPlay}}</p>
+            
+            </div>
+            
+            <div ng-if="selectedFormation == 'green'">
+                 
+            <img src="img/Zsd6KcmVTMG8a1xTj9cM_green.png" width="100%" height="50" style="display: block; margin-left: auto; margin-right: auto;  left:0; top:0;">
+
+            <p style="z-index:100; color:black; font-size:24px; font-weight:bold; position:absolute;  left:5px; top:5px;">{{selectedPlay}}</p>
+            
+            </div>
+
+            <div ng-if="selectedFormation == 'orange'">
+                 
+            <img src="img/U4to9oFaSGSXQFhvlglT_orange.png" width="100%" height="50" style="display: block; margin-left: auto; margin-right: auto;  left:0; top:0;">
+
+            <p style="z-index:100; color:black; font-size:24px; font-weight:bold; position:absolute;  left:5px; top:5px;">{{selectedPlay}}</p>
+            
+            </div>
+            
+            <div ng-if="selectedFormation == 'yellow'">
+                 
+            <img src="img/MUQyIZgkTKKBNtFKEAry_yellow.png" width="100%" height="50" style="display: block; margin-left: auto; margin-right: auto;  left:0; top:0;">
+
+            <p style="z-index:100; color:black; font-size:24px; font-weight:bold; position:absolute;  left:5px; top:5px;">{{selectedPlay}}</p>
+            
+            </div>
+            
+            <div class="spacer" style="width: 300px; height: 36px;"></div>
+
+            
+            <label class="item item-select " id="result-select1" >
+                
+                <span class="input-label">Select</span>
+                
+                <select ng-model="aboutPlay.result" ng-options="result for result in results"></select>
+                
+            </label>
+            <div class="spacer" style="width: 300px; height: 36px;"></div>
+                        
+            <label class="item item-input " id="result-input1">
+                <span class="input-label">Yards</span>
+                <input type="number" placeholder="" ng-model="aboutPlay.value">
+            </label>
+            <div class="spacer" style="width: 300px; height: 36px;"></div>
+            <label class="item item-input " id="result-textarea1">
+                <span class="input-label">Notes</span><textarea placeholder="" ng-model="aboutPlay.text"></textarea>
+            </label>
+        </form>
+        <a ui-sref="tabsController.formation" id="result-button2" class=" button button-positive  button-block short" ng-click="addPlay(aboutPlay,0)">Save</a>
+        
+        <a ui-sref="tabsController.formation" id="result-button3" class=" button button-positive  button-block short" ng-click="addPlay(aboutPlay, 1)">Save&amp;Tweet</a>
+                
+    </ion-content>
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view title="Reports" id="page3" class=" ">
+    <ion-content padding="true" class="has-header">
+    
+
+            
+            <label class="item item-select " id="result-select1" >
+                
+                <span class="input-label">Select</span>
+                
+                <select ng-model="searchCriteria" ng-options="filter for filter in filters"></select>
+                
+            </label>
+
+    <div class="spacer" style="width: 300px; height: 36px;"></div>
+
+        
+        <ion-item ng-repeat="item in playsMade | filter:searchCriteria" class="  ">
+            
+
+<table style="width:100%">
+            <tr>    
+                <td><b>Formation:</b></td> <td>{{item.formation}}</td>
+            </tr>
+            <tr>
+                <td><b>Play:</b></td> <td>{{item.play}}</td>    
+            </tr>
+            <tr>    
+                <td><b>Result:</b></td> <td>{{item.result}}</td>
+            </tr>
+            <tr>
+                <td><b>Yards:</b></td> <td>{{item.value}} </td>
+            </tr>
+            <tr>
+                <td><b>Notes:</b></td> <td>{{item.text}} </td>
+            </tr>
+
+</table>                
+            </ion-item>
+        
+        
+    </ion-content>
+</ion-view>

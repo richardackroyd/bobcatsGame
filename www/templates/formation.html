@@ -1,0 +1,57 @@
+<ion-view title="Formation" id="page2" class=" ">
+    <ion-content padding="true" class="has-header">
+        <div class="">
+            <a style="display:block;" ui-sref="tabsController.play" ng-click="setFormation('red')">
+                <img src="img/UAQrvKZ3RSiS4KWve4wf_red.png" width="100" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+            </a>
+        </div>
+        <div class="spacer" style="width: 300px; height: 34px;"></div>
+        <div class="">
+            <a style="display:block;" ui-sref="tabsController.play" ng-click="setFormation('blue')">
+                <img src="img/frKn3IpVTqajCrHPaWlR_blue.png" width="100" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+            </a>
+        </div>
+        <div class="spacer" style="width: 300px; height: 34px;"></div>
+        <div class="">
+            <a style="display:block;" ui-sref="tabsController.play"  ng-click="setFormation('green')">
+                <img src="img/Zsd6KcmVTMG8a1xTj9cM_green.png" width="100" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+            </a>
+        </div>
+        <div class="spacer" style="width: 300px; height: 34px;"></div>
+        <div class="">
+            <a style="display:block;" ui-sref="tabsController.play" ng-click="setFormation('orange')">
+                <img src="img/U4to9oFaSGSXQFhvlglT_orange.png" width="100" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+            </a>
+        </div>
+        <div class="spacer" style="width: 300px; height: 34px;"></div>
+        <div class="">
+            <a style="display:block;" ui-sref="tabsController.play" ng-click="setFormation('yellow')">
+                <img src="img/MUQyIZgkTKKBNtFKEAry_yellow.png" width="100" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+            </a>
+        </div>
+    
+        <div class="spacer" style="width: 300px; height: 30px;"></div>
+        
+        <div align="center">
+        <table>
+            <tr>    
+                <td><b>Yards:</b></td> <td>{{yardsTotal}}</td>
+            </tr>
+            <tr>
+                <td><b>Succesful:</b></td> <td>{{successfulPlays}}</td>    
+            </tr>
+            <tr>    
+                <td><b>Failed:</b></td> <td>{{failedPlays}}</td>
+            </tr>
+            <tr>    
+                <td><b>Avg Yards:</b></td> <td>{{averageYards}}</td>
+            </tr>
+            <tr>    
+                <td><b>Penalties:</b></td> <td>{{penaltyCount}}</td>
+            </tr>
+
+        </table>  
+        </div>
+        
+    </ion-content>
+</ion-view>
