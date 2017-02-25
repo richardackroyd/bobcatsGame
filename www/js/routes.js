@@ -7,8 +7,17 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  
+
+  .state('tabsController.play', {
+    url: '/play',
+    views: {
+      'tab1': {
+        templateUrl: 'templates/play.html',
+        controller: 'playCtrl'
+      }
+    }
+  })
+
 
       .state('tabsController.formation', {
     url: '/formation',
@@ -29,7 +38,7 @@ angular.module('app.routes', [])
       }
     }
   })
-  
+
   .state('tabsController.reports', {
     url: '/reports',
     views: {
@@ -49,22 +58,14 @@ angular.module('app.routes', [])
       }
     }
   })
-  
+
   .state('tabsController', {
     url: '/page1',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
-  .state('tabsController.play', {
-    url: '/play',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/play.html',
-        controller: 'playCtrl'
-      }
-    }
-  })
+
 
   .state('tabsController.result', {
     url: '/result',
@@ -76,18 +77,18 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.playbook', {
-    url: '/playbook',
+  .state('tabsController.stats', {
+    url: '/stats',
     views: {
       'tab4': {
-        templateUrl: 'templates/playbook.html',
-        controller: 'playbookCtrl'
+        templateUrl: 'templates/stats.html',
+        controller: 'statsCtrl'
       }
     }
   })
 
-$urlRouterProvider.otherwise('/page1/formation')
+$urlRouterProvider.otherwise('/page1/play')
 
-  
+
 
 });

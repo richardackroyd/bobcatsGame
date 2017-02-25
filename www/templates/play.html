@@ -1,11 +1,26 @@
-<ion-view title="Play" id="page5" class=" ">
+<ion-view title="Play" id="page1" class=" ">
     <ion-content padding="true" class="has-header">
         <ion-list id="play-list1" class=" ">
-            <ion-item ng-repeat="item in tasks" ui-sref="tabsController.result" class="  " ng-click="setPlay(item.title,item.public,item.playtype)">
-            
-            {{item.title}}
-            
+          <div ng-repeat="item in tasks">
+            <ion-item class="  " ng-click="toggleGroup(item)" ng-class="{active: isGroupShown(item)}">
+
+            <i class="icon" ng-class="isGroupShown(item) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+
+              {{item.title}}
+
             </ion-item>
+
+            <div ng-repeat="play in item.plays">
+
+              <ion-item ui-sref="tabsController.formation" ng-click="setPlay(play, item)" ng-show="isGroupShown(item)">
+
+                {{play.title}}
+
+              </ion-item>
+            </div>
+
         </ion-list>
+      </div>
     </ion-content>
 </ion-view>
