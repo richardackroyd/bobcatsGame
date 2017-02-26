@@ -260,6 +260,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 
     $scope.setFormation = function(formation) {
         $scope.selectedFormation = formation;
+        console.log(formation);
     };
 
     //This is called when a play is completed with result information and the button pressed with Tweet or without

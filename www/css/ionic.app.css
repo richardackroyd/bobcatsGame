@@ -5754,7 +5754,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 .item .item-content.active,
 .item .item-content.activated {
   border-color: #ccc;
-  background-color: #D9D9D9; }
+  background-color: #ee0c0c; }
   .item.active.item-complex > .item-content,
   .item.activated.item-complex > .item-content,
   .item-complex.active .item-content.item-complex > .item-content,
@@ -9747,4 +9747,8 @@ a.button {
 
 .rightalign {
     text-align: right;
+}
+
+.playscolour {
+   background-color: #ee0c0c
 }

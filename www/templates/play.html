@@ -2,7 +2,7 @@
     <ion-content padding="true" class="has-header">
         <ion-list id="play-list1" class=" ">
           <div ng-repeat="item in tasks">
-            <ion-item class="  " ng-click="toggleGroup(item)" ng-class="{active: isGroupShown(item)}">
+            <ion-item class="playscolour" ng-click="toggleGroup(item)">
 
             <i class="icon" ng-class="isGroupShown(item) ? 'ion-minus' : 'ion-plus'"></i>
             &nbsp;
