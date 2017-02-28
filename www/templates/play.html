@@ -2,7 +2,7 @@
     <ion-content padding="true" class="has-header">
         <ion-list id="play-list1" class=" ">
           <div ng-repeat="item in tasks">
-            <ion-item class="playscolour" ng-click="toggleGroup(item)">
+            <ion-item ng-click="toggleGroup(item)" ng-class="{playscolour: isGroupShown(item)}">
 
             <i class="icon" ng-class="isGroupShown(item) ? 'ion-minus' : 'ion-plus'"></i>
             &nbsp;
@@ -20,7 +20,7 @@
               </ion-item>
             </div>
 
-        </ion-list>
       </div>
+    </ion-list>
     </ion-content>
 </ion-view>

@@ -177,7 +177,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     //Set the list of results from a play that need to be tracked
 
     $scope.results = ["Success","Failed - OL","Failed - QB","Failed - RB","Failed - WR","Failed - Penalty"];
-
+    $scope.formations = ["Red", "Blue motion Red", "Blue", "Red motion Blue", "Green", "Orange motion Green", "Yellow motion Green", "Green motion", "Orange", "Green motion Orange", "Orange motion", "Yellow", "Green motion Yellow", "Yellow motion"];
 
     //Provides the list of reporting filters for the reports page drop down list
     $scope.filters = ["","Success","Failed"];
