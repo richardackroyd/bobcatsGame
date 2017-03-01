@@ -254,6 +254,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
         $scope.selectedPlay = playSelected.title;
         $scope.selectedPublicPlay = playSelected.public;
         $scope.playtype = playSelected.playtype;
+        $scope.formations = playSelected.formations;
+
     };
 
     //From the first play screed, the formation information is stored in a temporary variable for use later
