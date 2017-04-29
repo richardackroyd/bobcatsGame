@@ -1,7 +1,17 @@
 <ion-view title="Play" id="page1" class=" ">
     <ion-content padding="true" class="has-header">
+
+      <div style="height: 100px; ">
+
+      <ion-toggle ng-model=playListChoice ng-chnage="setCategoryList()">Single List of Plays</ion-toggle>
+
+      </div>
+
         <ion-list id="play-list1" class=" ">
-          <div ng-repeat="item in tasks">
+
+          <div ng-switch on="playListChoice">
+
+          <div ng-switch-when="false" ng-repeat="item in tasks">
             <ion-item ng-click="toggleGroup(item)" ng-class="{playscolour: isGroupShown(item)}">
 
             <i class="icon" ng-class="isGroupShown(item) ? 'ion-minus' : 'ion-plus'"></i>
@@ -9,7 +19,9 @@
 
               {{item.title}}
 
+
             </ion-item>
+
 
             <div ng-repeat="play in item.plays">
 
@@ -20,7 +32,20 @@
               </ion-item>
             </div>
 
-      </div>
+          </div>
+
+
+            <div ng-switch-when="true" ng-repeat="play in tasksFlat ">
+
+              <ion-item ui-sref="tabsController.formation" ng-click="setPlay(play, 'no')">
+
+                {{play.title}}
+
+              </ion-item>
+            </div>
+
+          </div>
+
     </ion-list>
     </ion-content>
 </ion-view>

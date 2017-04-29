@@ -190,7 +190,7 @@
   "plays": [
   {"title": "9 - Dive Right Outside Gap",
    "public": "Dive Right",
-   "playtype": "dive",
+   "playtype": "run",
   "formations": [
     "red",
     "blue motion red",
@@ -202,7 +202,7 @@
     ]},
   {"title": "10 - Dive Left Outside Gap",
     "public": "Dive Left",
-   "playtype": "dive",
+   "playtype": "run",
   "formations": [
     "red",
     "blue motion red",
@@ -214,7 +214,7 @@
     ]},
   {"title": "39 - QB Dive Right Outside Gap",
     "public": "QB Dive Right",
-    "playtype": "dive",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -228,9 +228,9 @@
      "green motion orange",
      "green motion yellow"
      ]},
-  { "title": "40 - QB Dive Right Inside Gap",
+  { "title": "40 - QB Dive Inside Gap",
     "public": "QB Dive Right",
-    "playtype": "dive",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -246,23 +246,7 @@
      ]},
   { "title": "41 - QB Dive Left Outside Gap",
     "public": "QB Dive Left",
-    "playtype": "dive",
-   "formations": [
-     "red",
-     "blue motion red",
-     "blue",
-     "red motion blue",
-     "yellow",
-     "yellow motion green",
-     "orange",
-     "orange motion green",
-     "green",
-     "green motion orange",
-     "green motion yellow"
-     ]},
-  { "title": "42 - Dive Left Inside Gap",
-    "public": "QB Dive Left",
-    "playtype": "dive",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -281,7 +265,7 @@
   "plays": [
   {"title": "11 - Pitch Right Combo Right",
    "public": "Pitch Right",
-   "playtype": "wide",
+   "playtype": "run",
   "formations": [
     "red",
     "blue motion red",
@@ -297,7 +281,7 @@
     ]},
   {"title": "12 - Pitch Left Combo Left",
     "public": "Pitch Left",
-    "playtype": "wide",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -313,7 +297,7 @@
      ]},
   {"title": "13 - Triple Option Right Combo Left",
     "public": "Triple Option Right",
-    "playtype": "wide",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -325,7 +309,7 @@
      ]},
   {"title": "12 - Triple Option Left Combo Right",
     "public": "Triple Option Left",
-    "playtype": "wide",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -337,21 +321,21 @@
      ]},
   {"title": "29 - Jet Option Right Combo Left",
     "public": "Jet Option Right",
-    "playtype": "wide",
+    "playtype": "run",
    "formations": [
      "red motion",
      "blue motion"
      ]},
   {"title": "30 - Jet Option Left Combo Right",
     "public": "Jet Option Left",
-    "playtype": "wide",
+    "playtype": "run",
    "formations": [
      "red motion",
      "blue motion"
      ]},
   {"title": "31 - Jet Right Combo Left",
     "public": "Jet Right",
-    "playtype": "wide",
+    "playtype": "run",
    "formations": [
      "yellow motion",
      "orange motion",
@@ -359,7 +343,7 @@
      ]},
   {"title": "32 - Jet Left Combo Right",
     "public": "Jet Left",
-    "playtype": "wide",
+    "playtype": "run",
    "formations": [
      "yellow motion",
      "orange motion",
@@ -370,7 +354,7 @@
   "plays": [
   {"title": "15 - Fake Run Left Counter Right Combo Left Pull",
     "public": "Counter Right",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -379,7 +363,7 @@
      ]},
   {"title": "16 - Fake Run Right Counter Left Combo Right Pull",
     "public": "Counter Left",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -388,7 +372,7 @@
      ]},
   {"title": "17 - Fake Jet Left Counter Right Combo Left Pull",
     "public": "Counter Right",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "blue motion",
      "red motion",
@@ -399,7 +383,7 @@
      ]},
   {"title": "18 - Fake Jet Right Counter Left Combo Right Pull",
     "public": "Counter Left",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "blue motion",
      "red motion",
@@ -410,7 +394,7 @@
      ]},
   {"title": "19 - Jeff Left Combo Left Playside Pull",
     "public": "Counter Left",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -419,7 +403,7 @@
      ]},
   {"title": "20 - Jeff Right Combo Right Playside Pull",
     "public": "Counter Right",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -428,7 +412,7 @@
      ]},
   {"title": "21 - Zone Right Combo Left",
     "public": "Zone Right",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -442,7 +426,7 @@
      ]},
   {"title": "22 - Zone Right Combo Right",
     "public": "Zone Right",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -458,7 +442,7 @@
      ]},
   {"title": "23 - Zone Right Combo Left Pull",
     "public": "Zone Right",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -474,7 +458,7 @@
      ]},
   {"title": "24 - Zone Right Combo Right Pull",
     "public": "Zone Right",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -490,7 +474,7 @@
      ]},
   {"title": "25 - Zone Left Combo Right",
     "public": "Zone Left",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -504,7 +488,7 @@
      ]},
   {"title": "26 - Zone Left Combo Left",
     "public": "Zone Left",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -520,7 +504,7 @@
      ]},
   {"title": "27 - Zone Left Combo Right Pull",
     "public": "Zone Left",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -536,7 +520,7 @@
      ]},
   {"title": "28 - Zone Left Combo Left Pull",
     "public": "Zone Left",
-    "playtype": "misdirection",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -555,7 +539,7 @@
   "plays": [
   {"title": "33 - WR Screen Right Combo Left",
     "public": "WR Screen Right",
-    "playtype": "screen",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -571,7 +555,7 @@
      ]},
   {"title": "34 - WR Screen Left Combo Right",
     "public": "WR Screen Left",
-    "playtype": "screen",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -587,7 +571,7 @@
      ]},
   {"title": "35 - WR Screen Reverse Left Combo Left",
     "public": "WR Reverse Left",
-    "playtype": "reverse",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -603,7 +587,7 @@
      ]},
   {"title": "36 - WR Screen Reverse Right Combo Right",
     "public": "WR Reverse Right",
-    "playtype": "reverse",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -619,7 +603,7 @@
      ]},
   {"title": "37 - Tackle Screen Right Combo Left",
     "public": "Tackle Screen Right",
-    "playtype": "screen",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -635,7 +619,7 @@
      ]},
   {"title": "38 - Tackle Screen Left Combo Right",
     "public": "Tackle Screen Left",
-    "playtype": "screen",
+    "playtype": "run",
    "formations": [
      "red",
      "blue motion red",
@@ -769,6 +753,12 @@
      "green motion orange",
      "green motion yellow"
      ]},
+  {"title": "60 - Empty Pockets",
+    "public": "Pass",
+    "playtype": "pass",
+    "formations": [
+    "empty"
+    ]},
   {"title": "61 - Mongoose",
     "public": "Pass",
     "playtype": "pass",
@@ -792,12 +782,6 @@
      "green",
      "yellow motion green",
      "orange motion green"
-     ]},
-  {"title": "60 - Empty Pockets",
-    "public": "Pass",
-    "playtype": "pass",
-   "formations": [
-     "empty"
      ]}
 ]}
 ]

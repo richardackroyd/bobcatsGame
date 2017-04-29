@@ -28,7 +28,14 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 
 })
 
-.controller('TodoCtrl', function($scope, $http, PlayData, $ionicPopup, $timeout, $ionicPlatform, $twitterApi, $cordovaOauth, $localStorage) {
+.factory('PlayDataFlat', function($http) {
+
+  return $http.get('test0.json');
+
+})
+
+
+.controller('TodoCtrl', function($scope, $http, PlayData, PlayDataFlat, $ionicPopup, $timeout, $ionicPlatform, $twitterApi, $cordovaOauth, $localStorage) {
 
     console.log("start " + $localStorage.success);
 
@@ -38,6 +45,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     var status="";
     var yards=0;
     var notes="";
+    $scope.playListChoice="false";
 
     //variables to be set from local storage assuming the value isn't null
     if ($localStorage.yards == null || $localStorage.yards == '') {
@@ -174,6 +182,13 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
         $scope.tasks = data
     });
 
+    PlayDataFlat.success(function(data) {
+        $scope.tasksFlat = data
+    });
+
+    console.log($scope.tasksFlat);
+
+
     //Set the list of results from a play that need to be tracked
 
     $scope.results = ["Success","Failed - OL","Failed - QB","Failed - RB","Failed - WR","Failed - Penalty"];
@@ -248,7 +263,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 
     $scope.setPlay = function(playSelected, itemSelected) {
         console.log(playSelected);
-        $scope.toggleGroup(itemSelected);
+
+        if (itemSelected != "no") {
+          $scope.toggleGroup(itemSelected);
+
+        }
+
         console.log("play is " + playSelected.title);
         console.log(playSelected);
         $scope.selectedPlay = playSelected.title;
@@ -539,8 +559,29 @@ $scope.toggleGroup = function(group) {
 
 
 $scope.isGroupShown = function(group) {
-console.log(group);
+
   return group.show;
+};
+
+$scope.setCategoryList = function () {
+
+console.log("changed");
+
+  if ($scope.playListChoice == 0){
+    $scope.playListChoice=1;
+  } else {
+    $scope.playListChoice=0;
+  }
+
+console.log("changed");
+
+};
+
+$scope.isCategoryList = function () {
+//return 0;
+
+  return $scope.playListChoice;
+
 };
 
 });
